@@ -81,11 +81,11 @@
           <label>Role</label>
                   <select class="select2" name="role" style="width: 100%;">
                     <option disabled selected>Select Role</option>
-                    <option>Admin</option>
-                    <option>HR Manager</option>
-                    <option>Recruiter</option>
-                    <option>Interviewer</option>
-                    <option>Candidate</option>
+                    <option>District Admin</option>
+                    <option>District Worker</option>
+                    <option>Citizen</option>
+                    <!-- <option>Interviewer</option>
+                    <option>Candidate</option> -->
                   </select>
         </div>
         
