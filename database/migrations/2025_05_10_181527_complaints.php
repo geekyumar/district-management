@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('address');
             $table->string('district')->nullable();
             $table->string('pin_code')->nullable();
+            $table->string('remarks')->nullable();
             $table->string('image')->nullable();
             $table->string('location_link')->nullable();
 

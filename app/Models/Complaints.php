@@ -16,5 +16,6 @@ protected $fillable = [
     'pin_code',
     'image',
     'location_link',
+    'remarks',
 ];
 }

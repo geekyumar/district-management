@@ -28,6 +28,7 @@ class ComplaintController extends Controller
         $complaints = new Complaints();
         $complaints->fill($request->post());
         $complaints->complaint_status = 'Registered';
+        $complaints->remarks = 'Registered';
         $complaints->save();
 
         return redirect('/complaints/list');
@@ -38,6 +39,12 @@ class ComplaintController extends Controller
     }
 
     public function statusPage(Request $request){
+        $complaintId = request()->query('complaint_id');
+        if($complaintId){
+            $complaints = Complaints::where('id', $complaintId)->first();
+            return view('complaints.status', ['complaints' => $complaints]);
+        }
+
         return view('complaints.status');
     }
 

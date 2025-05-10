@@ -56,7 +56,7 @@
         <div class="card card-default">
           
           <!-- /.card-header -->
-        <form method="post" action="{{ url('/complaints/check-status') }}">
+        <form method="get">
     <div class="card-body">
         <div class="section-box">
             <div class="row">
@@ -64,7 +64,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Complaint ID / Mobile Number</label>
-                        <input type="text" class="form-control" name="complaint_identifier" placeholder="Enter complaint ID or mobile number" required="">
+                        <input type="text" class="form-control" name="complaint_id" placeholder="Enter complaint ID or mobile number" required="">
                     </div>
                 </div>
 
@@ -78,32 +78,41 @@
             <div class="row mt-4">
                 <div class="col-md-6">
                     <div class="form-group">
+                        <label>Complaint ID</label>
+                        <p class="form-control-plaintext">{{$complaints->id ?? 'N/A'}} </p>
+                    </div>
+                    <div class="form-group">
                         <label>Complaint Type</label>
-                        <p class="form-control-plaintext">--</p>
+                        <p class="form-control-plaintext">{{$complaints->complaint_type ?? 'N/A'}} </p>
                     </div>
                     <div class="form-group">
                         <label>Town Name</label>
-                        <p class="form-control-plaintext">--</p>
+                        <p class="form-control-plaintext">{{$complaints->address ?? 'N/A'}} </p>
                     </div>
                     <div class="form-group">
                         <label>District</label>
-                        <p class="form-control-plaintext">--</p>
+                        <p class="form-control-plaintext">{{$complaints->district ?? 'N/A'}} </p>
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Pincode</label>
-                        <p class="form-control-plaintext">--</p>
+                        <p class="form-control-plaintext">{{$complaints->pincode ?? 'N/A'}} </p>
                     </div>
                     <div class="form-group">
-                        <label>Street Name</label>
-                        <p class="form-control-plaintext">--</p>
+                        <label>Maps Location</label>
+                        <p class="form-control-plaintext"><a target="_blank" href="{{$complaints->location_link ?? 'N/A'}}">{{$complaints->location_link ?? 'N/A'}} </a> </p>
                     </div>
                     
                     <div class="form-group">
                         <label>Status</label>
-                        <p class="form-control-plaintext">--</p>
+                        <p class="form-control-plaintext">{{$complaints->complaint_status ?? 'N/A'}} </p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Remarks</label>
+                        <p class="form-control-plaintext">{{$complaints->remarks ?? 'N/A'}} </p>
                     </div>
                 </div>
             </div>

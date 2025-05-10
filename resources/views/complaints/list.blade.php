@@ -71,74 +71,25 @@
                 <th>Date</th>
                 <th>Status</th>
                 <th>Remark</th>
-                <th>Edit</th>
+                <!-- <th>Edit</th> -->
               </tr>
             </thead>
             <tbody>
               <!-- Example Row 1 -->
               <tr>
-                <td>CMP001</td>
-                <td>John Doe</td>
-                <td>Water</td>
-                <td>2024-09-25</td>
-                <td>In Progress</td>
-                <td>Being fixed</td>
-                <td>
-                  <button type="button" class="btn btn-sm btn-primary" onclick="toggleEdit('cmp001')">Edit</button>
-                </td>
-              </tr>
-              <tr id="edit-row-cmp001" style="display: none;">
-                <td colspan="7">
-                  <div class="row">
-                    <div class="col-md-4">
-                      <select class="form-control" name="status_cmp001">
-                        <option selected disabled>Update Status</option>
-                        <option value="Pending">Pending</option>
-                        <option value="In Progress">In Progress</option>
-                        <option value="Resolved">Resolved</option>
-                      </select>
-                    </div>
-                    <div class="col-md-5">
-                      <input type="text" class="form-control" name="remark_cmp001" placeholder="Enter your remark">
-                    </div>
-                    <div class="col-md-3">
-                      <button type="submit" class="btn btn-success btn-sm">Update</button>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-
-              <!-- Example Row 2 -->
-              <tr>
-                <td>CMP002</td>
-                <td>Jane Smith</td>
-                <td>Electricity</td>
-                <td>2024-09-24</td>
-                <td>Resolved</td>
-                <td>Issue closed</td>
-                <td>
-                  <button type="button" class="btn btn-sm btn-primary" onclick="toggleEdit('cmp002')">Edit</button>
-                </td>
-              </tr>
-              <tr id="edit-row-cmp002" style="display: none;">
-                <td colspan="7">
-                  <div class="row">
-                    <div class="col-md-4">
-                      <select class="form-control" name="status_cmp002">
-                        <option selected disabled>Update Status</option>
-                        <option value="Pending">Pending</option>
-                        <option value="In Progress">In Progress</option>
-                        <option value="Resolved">Resolved</option>
-                      </select>
-                    </div>
-                    <div class="col-md-5">
-                      <input type="text" class="form-control" name="remark_cmp002" placeholder="Enter your remark">
-                    </div>
-                    <div class="col-md-3">
-                      <button type="submit" class="btn btn-success btn-sm">Update</button>
-                    </div>
-                  </div>
-                </td>
+@foreach ($complaints as $complaint)
+<tr>
+    <td>{{ $complaint->id }}</td>
+    <td>{{ $complaint->complaint_title }}</td>
+    <td>{{ $complaint->complaint_type }}</td>
+    <td>{{ $complaint->created_at->format('Y-m-d') }}</td>
+    <td>{{ $complaint->complaint_status }}</td>
+    <td>{{ $complaint->remarks }}</td>
+    <!-- <td>
+        <button type="button" class="btn btn-sm btn-primary" onclick="toggleEdit('cmp{{ $complaint->id }}')">Edit</button>
+    </td> -->
+</tr>
+@endforeach
               </tr>
               <!-- More rows dynamically -->
             </tbody>

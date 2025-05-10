@@ -40,8 +40,18 @@
           
           <!-- /.card-header -->
         <form method="post" action="{{ url('/complaints/create') }}" enctype="multipart/form-data">
+        @csrf
     <div class="card-body">
         <div class="row">
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Complaint Title</label>
+                    <input type="text" class="form-control" name="complaint_title" placeholder="Enter Complaint title" required="">
+                </div>
+            </div>
+
+
             <!-- Complaint Type Dropdown -->
             <div class="col-md-6" data-select2-id="9">
                 <div class="form-group" data-select2-id="8">
@@ -58,6 +68,16 @@
 
             <!-- District Dropdown -->
             <!-- District Dropdown -->
+
+                        <!-- Address -->
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Address</label>
+                    <input type="text" class="form-control" name="address" placeholder="Enter Address" required="">
+                </div>
+            </div>
+
+
 <div class="col-md-6">
     <div class="form-group">
         <label>District</label>
@@ -104,15 +124,6 @@
       </div>
 </div>
 
-
-            <!-- Town/City -->
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label>Town/City</label>
-                    <input type="text" class="form-control" name="town" placeholder="Enter town or city name" required="">
-                </div>
-            </div>
-
             <!-- Pin Code -->
             <div class="col-md-6">
                 <div class="form-group">
@@ -121,27 +132,11 @@
                 </div>
             </div>
 
-            <!-- Street Name -->
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label>Street Name</label>
-                    <input type="text" class="form-control" name="street" placeholder="Enter street name">
-                </div>
-            </div>
-
             <!-- Location Link -->
             <div class="col-md-12">
                 <div class="form-group">
                     <label>Google Maps Location Link</label>
                     <input type="url" class="form-control" name="location_link" placeholder="Paste Google Maps link to the location">
-                </div>
-            </div>
-
-            <!-- Complaint Description -->
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label>Complaint Description</label>
-                    <textarea class="form-control" name="description" rows="4" placeholder="Enter complaint details" required=""></textarea>
                 </div>
             </div>
 
