@@ -20,7 +20,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="/" class="brand-link">
-      <span class="brand-text font-weight-light">Smart Recruiting Platform</span>
+      <span class="brand-text font-weight-light">District Management</span>
     </a>
 
     <!-- Sidebar -->
@@ -43,27 +43,27 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Job Posting
+                Complaints
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ url('/jobs/create') }}" class="nav-link">
+                <a href="{{ url('/complaints/list') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Job Creation</p>
+                  <p>List Complaints</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ url('/jobs/list') }}" class="nav-link">
+                <a href="{{ url('/complaints/create') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Job Drafts</p>
+                  <p>Create a Complaint</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ url('/jobs/list?status=published') }}" class="nav-link">
+                <a href="{{ url('/complaints/status') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Published Jobs</p>
+                  <p>Complaint Status</p>
                 </a>
               </li>
             </ul>

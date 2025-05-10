@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hexaware | Dashboard</title>
+  <title>District Management | Dashboard</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -57,7 +57,7 @@
     </div>
     <!-- /.content-header -->
     <!-- /.content -->
-    <h1 class="ml-3">Welcome to Smart Recruiting Platform!</h1>
+    <h1 class="ml-3">Welcome to District Management System!</h1>
     <h5 class="ml-3">Check the sidebar for options.</h5>
   </div>
   <!-- Control Sidebar -->

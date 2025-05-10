@@ -1,10 +1,10 @@
-# Smart Recruiting Platform
+# District Management
 
-Welcome to the Smart Recruiting Platform! This application is built using **Laravel** and utilizes **MySQL** for database management. The platform is designed to streamline the recruitment process, providing a user-friendly interface and robust functionality across various modules.
+Welcome to the District Management! This application is built using **Laravel** and utilizes **MySQL** for database management. The platform is designed to streamline the recruitment process, providing a user-friendly interface and robust functionality across various modules.
 
 ## Overview
 
-The Smart Recruiting Platform consists of **8 modules** that represent the core functionalities of the application. Each module has been developed according to the specifications outlined in the project document.
+The District Management consists of **8 modules** that represent the core functionalities of the application. Each module has been developed according to the specifications outlined in the project document.
 
 ### Modules
 
@@ -48,7 +48,7 @@ The Smart Recruiting Platform consists of **8 modules** that represent the core 
 
 ## Installation
 
-To run the Smart Recruiting Platform locally, follow these steps:
+To run the District Management locally, follow these steps:
 
 1. Clone the repository:
 

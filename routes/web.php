@@ -19,9 +19,10 @@ Route::get('/jobs/create', function(){
 
 // Jobs Route
 
-Route::get('/jobs/list', [App\Http\Controllers\JobController::class, 'list']);
-Route::post('/jobs/create', [App\Http\Controllers\JobController::class, 'create']);
-Route::get('/jobs/publish/{id}', [App\Http\Controllers\JobController::class, 'publish']);
+Route::get('/complaints/list', [App\Http\Controllers\ComplaintController::class, 'list']);
+Route::get('/complaints/create', [App\Http\Controllers\ComplaintController::class, 'createPage']);
+Route::post('/complaints/create', [App\Http\Controllers\ComplaintController::class, 'create']);
+Route::get('/complaints/status', [App\Http\Controllers\ComplaintController::class, 'statusPage']);
 Route::get('/jobs/unpublish/{id}', [App\Http\Controllers\JobController::class, 'unpublish']);
 Route::get('/jobs/edit/{id}', [App\Http\Controllers\JobController::class, 'edit']);
 Route::post('/jobs/edit/{id}', [App\Http\Controllers\JobController::class, 'update']);
