@@ -48,6 +48,15 @@ class ComplaintController extends Controller
         return view('complaints.status');
     }
 
+    public function sendComplaintData(Request $request, $id){
+        $complaints = Complaints::where('id', $id)->first();
+        if($complaints){
+            return response()->json(['response' => 'success', 'data' => $complaints], 200);
+        }
+
+        return response()->json(['response' => 'failed'], 500);
+    }
+
     // public function publish(Request $request, $id){
     //     $job = Jobs::where('id', $id)->update(['is_published' => 1]);
     //     if($job > 0){ // returns the affected rows count, hence written as > 0.
@@ -65,6 +74,7 @@ class ComplaintController extends Controller
     //         return response()->json(['response' => 'failed'], 500);
     //     }
     // }
+    
 
     public function list(Request $request){
         $complaints = Complaints::all();

@@ -37,8 +37,9 @@
 
   @include('templates.sidebar')
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+<div class="content-wrapper" style="min-height: 1401.48px;">
+
+
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
@@ -59,7 +60,156 @@
     <!-- /.content -->
     <h1 class="ml-3">Welcome to District Management System!</h1>
     <h5 class="ml-3">Check the sidebar for options.</h5>
+    
+
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+
+          <div class="col-sm-6">
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- SELECT2 EXAMPLE -->
+        <div class="card card-default">
+          
+          <!-- /.card-header -->
+           
+          
+<form method="get" action="{{ url('/admin/work-status') }}">
+  <div class="card-body">
+    
+    <!-- Title -->
+    <div class="row mb-3">
+      <div class="col-md-12">
+        <h5>Total List of Work and Status</h5>
+      </div>
+    </div>
+
+    <!-- Work Status Table -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card-body table-responsive p-0 pt-2">
+          <table class="table table-hover text-nowrap">
+            <thead>
+              <tr>
+                <th>Complaint ID</th>
+                <th>User Name</th>
+                <th>Complaint Type</th>
+                <th>Assigned To</th>
+                <th>Instructions</th>
+                <th>Assigned Date</th>
+                <th>Status</th>
+                <th>Last Updated</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Example Row 1 -->
+              <tr>
+                <td>CMP001</td>
+                <td>John Doe</td>
+                <td>Water</td>
+                <td>Worker A</td>
+                <td>Fix broken pipe</td>
+                <td>2024-09-25</td>
+                <td><span class="badge bg-warning">In Progress</span></td>
+                <td>2024-09-26</td>
+              </tr>
+
+              <!-- Example Row 2 -->
+              <tr>
+                <td>CMP002</td>
+                <td>Jane Smith</td>
+                <td>Electricity</td>
+                <td>Worker B</td>
+                <td>Check transformer</td>
+                <td>2024-09-24</td>
+                <td><span class="badge bg-success">Resolved</span></td>
+                <td>2024-09-25</td>
+              </tr>
+
+              <!-- More rows to be loaded dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
   </div>
+</form>
+
+
+          
+
+              
+                <!--<!--<label>Position</label>
+                  <select class="select2" data-placeholder="Select a Department" name="position" style="width: 100%;">
+                    <option disabled selected>Select Position</option>
+                    <option>HR</option>
+                    <option>IT (Developer)</option>
+                    <option>Marketing</option>
+                    <option>Sales</option>
+                    <option>Finance</option>
+                    <option>Auditing</option>
+                  </select>
+                </div>
+                 /.form-group -->
+
+                <!-- /.form-group -->
+              </div>
+              <!-- /.col -->
+            </div>
+            <!--<div class="row">
+              <div class="col-md-6">
+              <div class="form-group">
+                <div class="form-group">
+                  <label>Source</label>
+                  <select class="form-control select2" data-placeholder="Select an Employment Type" name="employment_type" style="width: 100%;">
+                    <option selected disabled>Select Source</option>
+                    <option>Job Board</option>
+                    <option>Referral</option>
+                  </select>
+                </div>
+            </div>
+                <!-- /.form-group -->
+                <!--<br>
+                  <div class="form-group">
+                    <label for="fieldsToInclude">Fields to Include</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="applicantName" name="fieldsToInclude[]" value="applicantName">
+                        <label class="form-check-label" for="applicantName">
+                            Applicant Name
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="dateApplied" name="fieldsToInclude[]" value="dateApplied">
+                        <label class="form-check-label" for="dateApplied">
+                            Date Applied
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="status" name="fieldsToInclude[]" value="status">
+                        <label class="form-check-label" for="status">
+                            Status
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="source" name="fieldsToInclude[]" value="source">
+                        <label class="form-check-label" for="source">
+                            Source
+                        </label>
+                    </div>
+                </div>
+                <!-- /.form-group -->
+              </section></div>
+  
+  
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->

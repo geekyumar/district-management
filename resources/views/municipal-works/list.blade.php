@@ -37,14 +37,13 @@
 
   @include('templates.sidebar')
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+<div class="content-wrapper" style="min-height: 1401.48px;">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Create a Report</h1>
+            <h1><b>Work Assigned</b></h1>
           </div>
           <div class="col-sm-6">
           </div>
@@ -57,43 +56,74 @@
       <div class="container-fluid">
         <!-- SELECT2 EXAMPLE -->
         <div class="card card-default">
-          <div class="card-header">
-            <h3 class="card-title">Create a Report</h3>
-          </div>
+          
           <!-- /.card-header -->
-        <form method="post" action="{{ url('/custom-reports/create') }}">
-          @csrf
-          <div class="card-body">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label>Report Name</label>
-                  <input class="form-control" name="report_name" placeholder="Report Name" style="width: 100%;">
-                </div>
-                
-                <!-- /.form-group -->
-                <div class="form-group">
-                <label>Status</label>
-                  <select class="select2" data-placeholder="Select a Department" name="application_status" style="width: 100%;">
-                    <option disabled selected>Select Status</option>
-                    <option></option>
-                    <option>New</option>
+           
+   <form method="post" action="{{ url('/worker/update-status') }}">
+  <div class="card-body">
+    <div class="row mb-3">
+      <div class="col-md-12">
+        <h5>My Assigned Works</h5>
+      </div>
+    </div>
+
+    <!-- Work Table -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card-body table-responsive p-0 pt-2">
+          <table class="table table-hover text-nowrap">
+            <thead>
+              <tr>
+                <th>Complaint ID</th>
+                <th>Type</th>
+                <th>Date Assigned</th>
+                <th>Status</th>
+                <th>Update Status</th>
+                <th>Remark</th>
+                <th>Submit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Example Row 1 -->
+              <tr>
+                @foreach ($municipal_works as $work)
+                <td>{{ $work->id }}</td>
+                <td>{{ $work->work_type }}</td>
+                <td>{{ $work->created_at }}</td>
+                <td>{{ $work->status }}</td>
+                <td>
+                  <select class="form-control" name="status[{{ $work->id }}]">
                     <option>In Progress</option>
-                    <option>Hired</option>
-                    <option>Rejected</option>
+                    <option>Completed</option>
                   </select>
-                </div>
-                <!-- /.form-group -->
-              </div>
-              <!-- /.col -->
-              <div class="col-md-6">
-                <div class="form-group">
-                <div class="form-group">
-                  <label>Date Range</label>
-                  <input class="form-control" type="date" name="created_at" placeholder="Date Range" style="width: 100%;">
-                </div>
-                <label>Position</label>
-                  <select class="select2" data-placeholder="Select a Department" name="job_id" style="width: 100%;">
+                </td>
+                <td>
+                  <textarea class="form-control" name="remark[CMP001]" rows="1" placeholder="Enter remark"></textarea>
+                </td>
+                <td>
+                  <button type="submit" class="btn btn-success btn-sm">Update</button>
+                </td>
+                <!-- <td>
+                  <a href="{{ url('/municipal-work/') }}" class="btn btn-primary btn-sm">View</a>
+                </td> -->
+              </tr>
+              @endforeach
+
+
+              <!-- More rows dynamically loaded -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+          
+
+              
+                <!--<!--<label>Position</label>
+                  <select class="select2" data-placeholder="Select a Department" name="position" style="width: 100%;">
                     <option disabled selected>Select Position</option>
                     <option>HR</option>
                     <option>IT (Developer)</option>
@@ -103,18 +133,18 @@
                     <option>Auditing</option>
                   </select>
                 </div>
-                <!-- /.form-group -->
+                 /.form-group -->
 
                 <!-- /.form-group -->
               </div>
               <!-- /.col -->
             </div>
-            <div class="row">
+            <!--<div class="row">
               <div class="col-md-6">
               <div class="form-group">
                 <div class="form-group">
                   <label>Source</label>
-                  <select class="form-control select2" data-placeholder="Select an Employment Type" name="source" style="width: 100%;">
+                  <select class="form-control select2" data-placeholder="Select an Employment Type" name="employment_type" style="width: 100%;">
                     <option selected disabled>Select Source</option>
                     <option>Job Board</option>
                     <option>Referral</option>
@@ -122,56 +152,36 @@
                 </div>
             </div>
                 <!-- /.form-group -->
-                <br>
+                <!--<br>
                   <div class="form-group">
                     <label for="fieldsToInclude">Fields to Include</label>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="applicant_name" name="selected_fields[]">
+                        <input class="form-check-input" type="checkbox" id="applicantName" name="fieldsToInclude[]" value="applicantName">
                         <label class="form-check-label" for="applicantName">
                             Applicant Name
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="created_at" name="selected_fields[]">
+                        <input class="form-check-input" type="checkbox" id="dateApplied" name="fieldsToInclude[]" value="dateApplied">
                         <label class="form-check-label" for="dateApplied">
                             Date Applied
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="application_status" name="selected_fields[]">
+                        <input class="form-check-input" type="checkbox" id="status" name="fieldsToInclude[]" value="status">
                         <label class="form-check-label" for="status">
                             Status
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="source" name="selected_fields[]" value="source">
+                        <input class="form-check-input" type="checkbox" id="source" name="fieldsToInclude[]" value="source">
                         <label class="form-check-label" for="source">
                             Source
                         </label>
                     </div>
                 </div>
                 <!-- /.form-group -->
-              </div>
-              <!-- /.col -->
-              <!-- /.col -->
-            </div>
-            <br>
-            <div class="card-footer">
-              <button type="submit" class="btn btn-primary">Generate Report</button>
-            </div>
-            <!-- /.row -->
-
-            <!-- /.row -->
-          </div>
-          <!-- /.card-body -->
-        </div>
-        <!-- /.row -->
-      </div>
-      <!-- /.container-fluid -->
-</form>
-    </section>
-    <!-- /.content -->
-  </div>
+              </section></div>
   <!-- /.content-wrapper -->
 
   <!-- Control Sidebar -->

@@ -16,9 +16,9 @@ LISTING = 'listing'
 # Start command handler
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = [[
-        InlineKeyboardButton("Lodge a Complaint", callback_data='lodge'),
-        InlineKeyboardButton("Track your Complaint", callback_data='track'),
-        InlineKeyboardButton("List of Complaints", callback_data='list')
+        InlineKeyboardButton("Complaint", callback_data='lodge'),
+        InlineKeyboardButton("Track", callback_data='track'),
+        InlineKeyboardButton("List Complaints", callback_data='list')
     ]]
     reply_markup = InlineKeyboardMarkup(keyboard)
     await update.message.reply_text('Choose an option:', reply_markup=reply_markup)
@@ -80,8 +80,19 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     elif state == TRACKING and text:
         try:
-            res = requests.get(f'http://localhost:8000/api/track/{text}')
-            await update.message.reply_text("Tracking result:\n" + res.text)
+            complaint_id = str(text).strip()
+            res = requests.post(f'http://localhost:8000/api/complaint/track/{complaint_id}')
+            data = res.json()
+
+            message_lines = [f"{key.replace('_', ' ').title()}: {value}" for key, value in data.items()]
+            message = "\n".join(message_lines)
+
+            if len(message) <= 4096:
+                await update.message.reply_text(f"Tracking result:\n{message}")
+            else:
+                await update.message.reply_text("Tracking result (split):")
+                for i in range(0, len(message), 4096):
+                    await update.message.reply_text(message[i:i+4096])
         except Exception as e:
             await update.message.reply_text("Error tracking complaint: " + str(e))
 

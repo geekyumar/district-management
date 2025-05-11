@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
+Route::post('/api/complaint/track/{id}', [App\Http\Controllers\ComplaintController::class, 'sendComplaintData'])->withoutMiddleware('web', 'csrf');
+
 Route::middleware([\App\Http\Middleware\IsAuthenticated::class])->group(function(){
     Route::get('/', function () {
     return view('dashboard');
@@ -17,25 +19,27 @@ Route::get('/jobs/create', function(){
     return view('jobs.create');
 });
 
-// Jobs Route
+// Complaints Route
 
 Route::get('/complaints/list', [App\Http\Controllers\ComplaintController::class, 'list']);
 Route::get('/complaints/create', [App\Http\Controllers\ComplaintController::class, 'createPage']);
 Route::post('/complaints/create', [App\Http\Controllers\ComplaintController::class, 'create']);
 Route::get('/complaints/status', [App\Http\Controllers\ComplaintController::class, 'statusPage']);
-Route::get('/jobs/unpublish/{id}', [App\Http\Controllers\JobController::class, 'unpublish']);
-Route::get('/jobs/edit/{id}', [App\Http\Controllers\JobController::class, 'edit']);
-Route::post('/jobs/edit/{id}', [App\Http\Controllers\JobController::class, 'update']);
-Route::get('/jobs/delete/{id}', [App\Http\Controllers\JobController::class, 'delete']);
 
-// Job Categories Route
+// Route::get('/jobs/unpublish/{id}', [App\Http\Controllers\JobController::class, 'unpublish']);
+// Route::get('/jobs/edit/{id}', [App\Http\Controllers\JobController::class, 'edit']);
+// Route::post('/jobs/edit/{id}', [App\Http\Controllers\JobController::class, 'update']);
+// Route::get('/jobs/delete/{id}', [App\Http\Controllers\JobController::class, 'delete']);
 
-Route::get('/job-categories', [App\Http\Controllers\JobCategoryController::class, 'index']);
-Route::get('/job-categories/create', [App\Http\Controllers\JobCategoryController::class, 'createPage']);
-Route::get('/job-categories/edit/{id}', [App\Http\Controllers\JobCategoryController::class, 'editPage']);
-Route::post('/job-categories/edit/{id}', [App\Http\Controllers\JobCategoryController::class, 'edit']);
-Route::get('/job-categories/delete/{id}', [App\Http\Controllers\JobCategoryController::class, 'delete']);
-Route::post('/job-categories/create', [App\Http\Controllers\JobCategoryController::class, 'create']);
+// Municipal Works Route
+
+Route::get('/municipal-works/list', [App\Http\Controllers\MunicipalWorkController::class, 'list']);
+Route::get('/municipal-works/create', [App\Http\Controllers\MunicipalWorkController::class, 'createPage']);
+Route::post('/municipal-works/create', [App\Http\Controllers\MunicipalWorkController::class, 'create']);
+Route::post('/municipal-works/updateStatus/{id}', [App\Http\Controllers\MunicipalWorkController::class, 'updateStatus']);
+// Route::post('/job-categories/edit/{id}', [App\Http\Controllers\JobCategoryController::class, 'edit']);
+// Route::get('/job-categories/delete/{id}', [App\Http\Controllers\JobCategoryController::class, 'delete']);
+// Route::post('/job-categories/create', [App\Http\Controllers\JobCategoryController::class, 'create']);
 
 
 // Application Tracking Route
